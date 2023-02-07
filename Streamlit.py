@@ -19,7 +19,7 @@ st.set_page_config(page_title = "avocado-dashboard",
 
 
 
-df = pd.read_csv("https://raw.githubusercontent.com/Waqas-test/streamlit/main/avocado.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/waqas275/streamlit/main/avocado.csv")
 
 df['Date'] =  pd.to_datetime(df['Date'],infer_datetime_format=True)
 df.sort_values(by=['Date'],inplace=True)
