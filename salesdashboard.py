@@ -30,7 +30,7 @@ with st.spinner("plz wait"):
 		from datetime import datetime
 		df['SalesChannel'] = df['SalesChannel'].str.upper()
 
-
+		df['OrderDate'] = pd.to_datetime(df['OrderDate'])
 		df['Quarter'] = df['OrderDate'].dt.to_period('Q')#.astype(str)
 		df["Revenue"] = df["OrderQuantity"]*df["UnitPrice"]
 		df["Profit"] = df["Revenue"] -  (df["OrderQuantity"]*df["UnitCost"])
