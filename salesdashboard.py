@@ -25,7 +25,7 @@ with st.spinner("plz wait"):
 
 	def cachesdata():
 
-		df = pd.read_excel("SampleSales.xlsx",sheet_name = "Sheet1")
+		df = pd.read_csv("https://raw.githubusercontent.com/waqas275/streamlit/main/SampleSales.csv")
 
 		from datetime import datetime
 		df['SalesChannel'] = df['SalesChannel'].str.upper()
