@@ -31,7 +31,7 @@ with st.spinner("plz wait"):
 		df['SalesChannel'] = df['SalesChannel'].str.upper()
 
 
-		df['Quarter'] = df['OrderDate'].dt.to_period('Q').astype(str)
+		df['Quarter'] = df['OrderDate'].dt.to_period('Q')#.astype(str)
 		df["Revenue"] = df["OrderQuantity"]*df["UnitPrice"]
 		df["Profit"] = df["Revenue"] -  (df["OrderQuantity"]*df["UnitCost"])
 		df["houseslab"] = pd.qcut(df["HouseholdIncome"], 8, labels=False)
