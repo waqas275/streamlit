@@ -357,6 +357,11 @@ with l4col1:
 with l4col2:
 	st.plotly_chart(popchart,use_container_width=True)
 
+	
+st.plotly_chart(px.imshow(pd.pivot_table(df_selection, values =["Revenue"],
+		index =["State"], columns=["Product"]
+		aggfunc={'Revenue': np.sum}).reset_index()))
+	       
 #if chart == 'Continent Emissions': 
 #    st.plotly_chart(fig2)
 #if chart == 'Comparing continents': 
