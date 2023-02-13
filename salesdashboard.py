@@ -359,8 +359,8 @@ with l4col2:
 
 	
 st.plotly_chart(px.imshow(pd.pivot_table(df_selection, values =["Revenue"],
-		index =["State"], columns=["Product"]
-		aggfunc={'Revenue': np.sum}).reset_index()))
+		index =["State"], columns=["Product"],
+		aggfunc=np.sum).reset_index()))
 	       
 #if chart == 'Continent Emissions': 
 #    st.plotly_chart(fig2)
