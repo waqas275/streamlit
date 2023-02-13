@@ -359,9 +359,9 @@ with l4col2:
 	
 	
 testdf1 = pd.pivot_table(df_selection, values =["Revenue"],index =["State","Product"],aggfunc=np.sum).reset_index()
-heatmap = pd.pivot(testdf1, index="State", columns="Product", values="Revenue",height=800,width=800,title="Product & States Heatmap")
+heatmap = pd.pivot(testdf1, index="State", columns="Product", values="Revenue")
 	
-st.plotly_chart(px.imshow(heatmap))
+st.plotly_chart(px.imshow(heatmap,height=800,width=800,title="Product & States Heatmap",labels=dict(color="Revenue"))
 	       
 #if chart == 'Continent Emissions': 
 #    st.plotly_chart(fig2)
