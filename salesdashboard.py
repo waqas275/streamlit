@@ -264,7 +264,7 @@ col_11 ,col_22 = st.columns(2)
 
 with col_11:
 	if mapradio == 'Revenue':
-		st.plotly_chart(map1)	
+		st.plotly_chart(map1)
 	if mapradio == 'Quantity':
 		st.plotly_chart(map2)
 	if mapradio == 'Profit':
