@@ -153,7 +153,7 @@ left_ch,mid_ch ,right_ch = st.columns(3)
 
 pie = px.pie(data_frame=df_selection.groupby(['SalesChannel'])['OrderQuantity'].sum().reset_index(),
 	names="SalesChannel", values="OrderQuantity", color="SalesChannel",title="Units Sold by Channel",
-	labels = "OrderQuantity",hole=0.6, width = 370 , height= 350,color_continuous_scale = 'Reds')
+	labels = "OrderQuantity",hole=0.6, width = 370 , height= 350)
 pie.update_traces({"textinfo":"value+percent",
 					"textposition":"outside"})
 with left_ch:
@@ -175,7 +175,7 @@ with right_ch:
 
 pie2 = px.pie(data_frame=df_selection.groupby(['Sales_Region'])['Revenue'].sum().reset_index(), 
 	names="Sales_Region", values="Revenue", color="Sales_Region",title="Revenue by Region",
-	labels = "Revenue",hole=0.6, width = 370 , height= 350,color_continuous_scale = 'Reds')
+	labels = "Revenue",hole=0.6, width = 370 , height= 350)
 pie2.update_traces({"textinfo":"value+percent",
 					"textposition":"outside"})
 
