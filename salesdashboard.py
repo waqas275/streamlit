@@ -153,7 +153,7 @@ left_ch,mid_ch ,right_ch = st.columns(3)
 
 pie = px.pie(data_frame=df_selection.groupby(['SalesChannel'])['OrderQuantity'].sum().reset_index(),
 	names="SalesChannel", values="OrderQuantity", color="SalesChannel",title="Units Sold by Channel",
-	labels = "OrderQuantity",hole=0.6, width = 370 , height= 350)
+	labels = "OrderQuantity",hole=0.6, width = 370 , height= 350,color_continuous_scale = 'Reds')
 pie.update_traces({"textinfo":"value+percent",
 					"textposition":"outside"})
 with left_ch:
@@ -168,14 +168,14 @@ dfbar2 = dfbar1.melt(id_vars=['Quarter']+list(dfbar1.keys()[3:6]), var_name='_')
 fig1=px.line(dfbar2, x='Quarter', y='value', color='_' ,width = 370 , height= 350,title="Quarterly Trend Profit & Revenue",
 	labels={
                      "Quarter": "Qtr",
-                     "value": "USD"})
+                     "value": "USD"},color_continuous_scale = 'Reds')
 
 with right_ch:
 	st.plotly_chart(fig1)
 
 pie2 = px.pie(data_frame=df_selection.groupby(['Sales_Region'])['Revenue'].sum().reset_index(), 
 	names="Sales_Region", values="Revenue", color="Sales_Region",title="Revenue by Region",
-	labels = "Revenue",hole=0.6, width = 370 , height= 350)
+	labels = "Revenue",hole=0.6, width = 370 , height= 350,color_continuous_scale = 'Reds')
 pie2.update_traces({"textinfo":"value+percent",
 					"textposition":"outside"})
 
@@ -331,13 +331,13 @@ housechart = px.bar(pd.pivot_table(df_selection, values =["houseslab","Revenue",
 		index =["HouseHoldSlabs"], 
 		aggfunc={'houseslab': np.max,'Revenue': np.sum,"Profit":np.sum}).reset_index().sort_values(by=['houseslab'], ascending=True), y="Revenue", x='HouseHoldSlabs',orientation="v",labels={
                      "Revenue": "Revenue",
-                     "HouseHoldSlabs": "House hold Income range"},template="plotly_dark",title="Revenue by Household Income")
+                     "HouseHoldSlabs": "House hold Income range"},title="Revenue by Household Income",color_continuous_scale = 'Reds')
 
 popchart = px.bar(pd.pivot_table(df_selection, values =["Population","Revenue","Profit"],
 		index =["PopulationSlabs"], 
 		aggfunc={'Population': np.sum,'Revenue': np.sum,"Profit":np.sum}).reset_index().sort_values(by=['Population'], ascending=True), y="Revenue", x='PopulationSlabs',orientation="v",labels={
                      "Revenue": "Revenue",
-                     "PopulationSlabs": "PopulationSlabs"},title="Revenue by Population Distribution")
+                     "PopulationSlabs": "PopulationSlabs"},title="Revenue by Population Distribution",color_continuous_scale = 'Reds')
 
 
 #popchart = px.bar(pd.pivot_table(df_selection, values =["Population","Revenue","Profit"],
