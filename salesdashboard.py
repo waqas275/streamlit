@@ -337,7 +337,7 @@ popchart = px.bar(pd.pivot_table(df_selection, values =["Population","Revenue","
 		index =["PopulationSlabs"], 
 		aggfunc={'Population': np.sum,'Revenue': np.sum,"Profit":np.sum}).reset_index().sort_values(by=['Population'], ascending=True), y="Revenue", x='PopulationSlabs',orientation="v",labels={
                      "Revenue": "Revenue",
-                     "PopulationSlabs": "PopulationSlabs"},title="Revenue by Population Distribution",,text_auto=True)
+                     "PopulationSlabs": "PopulationSlabs"},title="Revenue by Population Distribution",text_auto=True)
 
 
 #popchart = px.bar(pd.pivot_table(df_selection, values =["Population","Revenue","Profit"],
