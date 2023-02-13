@@ -31,7 +31,7 @@ with st.spinner("plz wait"):
 		df['SalesChannel'] = df['SalesChannel'].str.upper()
 		
 		df['OrderDate'] = pd.to_datetime(df['OrderDate'])
-		df['Quarter'] = df['OrderDate'].dt.to_period('Q')#.astype(str)
+		df['Quarter'] = df['OrderDate'].dt.to_period('Q').astype(str)
 		df["OrderQuantity"] = pd.to_numeric(df["OrderQuantity"])
 		df["UnitPrice"] = pd.to_numeric(df["UnitPrice"])
 		df["UnitCost"] = pd.to_numeric(df["UnitCost"])
