@@ -118,8 +118,13 @@ channel = st.sidebar.multiselect(
     default=df["SalesChannel"].unique()
 )
 
+state = st.sidebar.multiselect(
+    "Select State:",
+    options=df["State"].unique(),
+    default=df["State"].unique()
+)
 
-df_selection = df.query("SalesChannel == @channel & OrderDate >= @start_date & OrderDate <= @end_date")
+df_selection = df.query("SalesChannel == @channel & OrderDate >= @start_date & OrderDate <= @end_date & State == @state")
 #& OrderDate >= @start_date & OrderDate <= @end_date
 #st.dataframe(df_selection)
 
