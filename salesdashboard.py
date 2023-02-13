@@ -337,7 +337,7 @@ popchart = px.bar(pd.pivot_table(df_selection, values =["Population","Revenue","
 		index =["PopulationSlabs"], 
 		aggfunc={'Population': np.sum,'Revenue': np.sum,"Profit":np.sum}).reset_index().sort_values(by=['Population'], ascending=True), y="Revenue", x='PopulationSlabs',orientation="v",labels={
                      "Revenue": "Revenue",
-                     "PopulationSlabs": "PopulationSlabs"},title="Revenue by Population Distribution",text_auto=True)
+                     "PopulationSlabs": "PopulationSlabs"},title="Revenue by Population Distribution")
 
 
 #popchart = px.bar(pd.pivot_table(df_selection, values =["Population","Revenue","Profit"],
@@ -359,7 +359,7 @@ st.markdown("""---""")
 	
 testdf = pd.pivot_table(df_selection, values =["Revenue"],index =["State","Product"],aggfunc=np.sum).reset_index()
 heatmap = pd.pivot(testdf, index="State", columns="Product", values="Revenue")
-heatmapchart = px.imshow(heatmap,height=1400,width=1200,title="Product & States Heatmap",color_continuous_scale = 'Reds',labels=dict(color="Revenue"),text_auto=True)	
+heatmapchart = px.imshow(heatmap,height=1400,width=1200,title="Product & States Heatmap",color_continuous_scale = 'Reds',labels=dict(color="Revenue"))	
 heatmapchart.update_xaxes(side="top")
 st.plotly_chart(heatmapchart)
 
