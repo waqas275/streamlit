@@ -359,7 +359,7 @@ st.markdown("""---""")
 	
 testdf = pd.pivot_table(df_selection, values =["Revenue"],index =["State","Product"],aggfunc=np.sum).reset_index()
 heatmap = pd.pivot(testdf, index="State", columns="Product", values="Revenue")
-heatmapchart = px.imshow(heatmap,height=1000,width=800,title="Product & States Heatmap",labels=dict(color="Revenue",color_continuous_scale="orange"))	
+heatmapchart = px.imshow(heatmap,height=1200,width=1000,title="Product & States Heatmap",labels=dict(color="Revenue",color_continuous_scale="orange"))	
 
 l5col1,l5col2,l5col3 = st.columns(3)
 
