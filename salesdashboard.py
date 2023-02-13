@@ -356,10 +356,10 @@ with l4col2:
 	st.plotly_chart(popchart,use_container_width=True)
 	
 	
-#testdf1 = pd.pivot_table(df_selection, values =["Revenue"],index =["State","Product"],aggfunc=np.sum).reset_index()
-#heatmap = pd.pivot(testdf1, index="State", columns="Product", values="Revenue")
+testdf1 = pd.pivot_table(df_selection, values =["Revenue"],index =["State","Product"],aggfunc=np.sum).reset_index()
+heatmap = pd.pivot(df_selection, index="State", columns="Product", values="Revenue")
 	
-#st.plotly_chart(px.imshow(heatmap,height=800,width=800,title="Product & States Heatmap",labels=dict(color="Revenue"))
+st.plotly_chart(px.imshow(heatmap,height=800,width=800,title="Product & States Heatmap",labels=dict(color="Revenue"))
 	       
 #if chart == 'Continent Emissions': 
 #    st.plotly_chart(fig2)
