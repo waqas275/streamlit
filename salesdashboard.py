@@ -360,7 +360,7 @@ with l4col2:
 	
 st.plotly_chart(px.imshow(pd.pivot_table(df_selection, values =["Revenue"],
 		index =["State"], columns=["Product"],
-		aggfunc=np.sum).reset_index()))
+		aggfunc=np.sum).reset_index()),text_auto=True,x="Product",y="Revenue")
 	       
 #if chart == 'Continent Emissions': 
 #    st.plotly_chart(fig2)
