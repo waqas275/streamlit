@@ -168,7 +168,7 @@ dfbar2 = dfbar1.melt(id_vars=['Quarter']+list(dfbar1.keys()[3:6]), var_name='_')
 fig1=px.line(dfbar2, x='Quarter', y='value', color='_' ,width = 370 , height= 350,title="Quarterly Trend Profit & Revenue",
 	labels={
                      "Quarter": "Qtr",
-                     "value": "USD"},color_continuous_scale = 'Reds')
+                     "value": "USD"})
 
 with right_ch:
 	st.plotly_chart(fig1)
