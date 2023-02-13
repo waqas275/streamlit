@@ -21,8 +21,8 @@ st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout
 
 # In[3]:
 with st.spinner("plz wait"):
-@st.cache	
-
+	
+	@st.cache
 	def cachesdata():
 
 		df = pd.read_csv("https://raw.githubusercontent.com/waqas275/streamlit/main/SampleSales.csv")
