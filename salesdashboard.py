@@ -363,19 +363,19 @@ heatmapchart = px.imshow(heatmap,height=1400,width=1200,title="Product & States 
 heatmapchart.update_xaxes(side="top")
 st.plotly_chart(heatmapchart)
 
-teamrank = pd.pivot_table(df, values =["Revenue"],index =["Sales_Region","SalesTeam"], aggfunc={'Revenue': np.sum}).reset_index()
+teamrank = pd.pivot_table(df_selection, values =["Revenue"],index =["Sales_Region","SalesTeam"], aggfunc= np.sum).reset_index()
 
 topteams = pd.DataFrame()
 
-for x in df.Sales_Region.unique():
+for x in teamrank.Sales_Region.unique():
     y = pd.DataFrame(teamrank[teamrank["Sales_Region"]==x].sort_values(by="Revenue",ascending=False)[["Sales_Region","SalesTeam","Revenue"]].head(5)).reset_index(drop=True)
     
-topteams = pd.concat([topteams,y])
+    topteams = pd.concat([topteams,y])
 
 
 topteams["Performance"] = topteams["SalesTeam"]+": $ "+((topteams["Revenue"]/1000000).round(2)).astype(str)+"m"
 
 top5 = topteams.pivot(index=None,columns = "Sales_Region", values="Performance").transpose()
 top5.columns=["1st","2nd","3rd","4th","5th"]
-
+st.markdown("Top 5 Sales Teams each Region")
 st.dataframe(top5)
