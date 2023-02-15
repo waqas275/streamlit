@@ -129,7 +129,7 @@ df_selection = df.query("SalesChannel == @channel & OrderDate >= @start_date & O
 #st.dataframe(df_selection)
 
 # ---- MAINPAGE ----
-st.header(":bar_chart: Sales Dashboard")
+st.header(":bar_chart: Sales Dashboard Example")
 st.markdown("##")
 
 # TOP KPI's
